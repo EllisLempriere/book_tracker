@@ -1,0 +1,17 @@
+{% if results %}
+
+    {% csrf_token %}
+    <ul class="list-group col-xs-12">
+        {% for book in results %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ book.name }}
+            <span style="cursor: pointer; color: green;"
+                  hx-post="{% url 'add-book' %}"
+                  hx-vals='{"bookname": "{{ book.name }}"}'
+                  hx-target="#book-list">add</span>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No search results</p>
+{% endif %}
