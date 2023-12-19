@@ -1,6 +1,5 @@
 ## Bug Fixes
 - When going to a book details page then back to books list, scrolling duplicates the list
-- Make index page the default landing page instead of error
 - Some strange display bugs displayed on different device when deleting an item from list
 
 ## New Features
