@@ -2,32 +2,29 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="align-center col-8 offset-2">
-    <p class="lead mb-3 ml-0">Register</p>
-    <hr/>
-    <form method="POST" action="{% url 'register' %}" autocomplete="off">
-        {% csrf_token %}
+    {% include 'partials/welcome.html' %}
 
-        <div class="form-group mb-3">
-            <label>{{ form.username.label_tag }}</label>
-            {{ form.username.errors }}
-            {% render_field form.username class="form-control" hx-post="/check_username/" hx-swap="outerhtml" hx-trigger="keyup delay:1.5s" hx-target="#username-error" %}
-            <div id="username-error"></div>
-        </div>
-        <div>
+    <div class="login-form">
+        <div class="login-form-header">Register</div>
+        <form method="POST" action="{% url 'register' %}" autocomplete="off">
+            {% csrf_token %}
 
-            <label>{{ form.password1.label_tag }}</label>
-            {{ form.password1.errors }}
-            {% render_field form.password1 class="form-control" %}
-        </div>
-        <div>
-            <label>{{ form.password2.label_tag }}</label>
-            {{ form.password2.errors }}
-            {% render_field form.password2 class="form-control" %}
-        </div>
+            <div class="form-entry-container" style="gap: 5px">
+                {{ form.username.errors }}
+                {% render_field form.username placeholder="Username" hx-post="/check_username/" hx-swap="outerhtml" hx-trigger="keyup delay:1.5s" hx-target="#username-error" %}
+                <div id="username-error"></div>
+            </div>
+            <div class="form-entry-container">
+                {{ form.password1.errors }}
+                {% render_field form.password1 placeholder="Enter a Password" %}
+            </div>
+            <div class="form-entry-container">
+                {{ form.password2.errors }}
+                {% render_field form.password2 placeholder="Confirm Password" %}
+            </div>
 
-        <button type="submit" class="btn btn-success mt-2">Register</button>
-    </form>
-</div>
+            <button class="small-button green-button form-entry-submit" type="submit">Register</button>
+        </form>
+    </div>
 
 {% endblock content %}

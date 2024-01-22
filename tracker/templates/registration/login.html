@@ -2,22 +2,24 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="align-center col-8 offset-2">
-    <p class="lead mb-3 ml-0">Login</p>
-    <hr/>
-    <form method="POST" action="{% url 'login' %}" autocomplete="off">
-        {% csrf_token %}
+    {% include 'partials/welcome.html' %}
 
-        {% for field in form %}
-        <div class="form-group mb-3">
-            <label>{{ field.label_tag }}</label>
-            {{ field.errors }}
-            {% render_field field class="form_control" placeholder=field.name %}
-        </div>
-        {% endfor %}
+    <div class="login-form">
+        <div class="login-form-header">Login</div>
+        <form method="POST" action="{% url 'login' %}" autocomplete="off">
+            {% csrf_token %}
 
-        <button type="submit" class="btn btn-success mt-2">Login</button>
-    </form>
-</div>
+            <div class="form-entry-container">
+                {{ form.username.errors }}
+                {% render_field form.username placeholder="Username" %}
+            </div>
+            <div class="form-entry-container">
+                {{ field.password.errors }}
+                {% render_field form.password placeholder="Password" %}
+            </div>
+
+            <button class="small-button green-button form-entry-submit" type="submit">Login</button>
+        </form>
+    </div>
 
 {% endblock content %}

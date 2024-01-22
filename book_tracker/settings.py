@@ -134,8 +134,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'tracker.User'
 
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'book-list'
+LOGOUT_REDIRECT_URL = 'login'
 
 PAGINATE_BY = 20
 
