@@ -1,38 +1,17 @@
-<div class="d-flex justify-content-between align-items-center">
-        <p class="lead ml-0">My Books</p>
-        <form hx-post="{% url 'add-book' %}" hx-target="#book-list" class="d-flex align-items-center">
-            {% csrf_token %}
-            <input type="text" name="bookname" class="form-control-sm mr-2" placeholder="Enter a book" />
-            <button type="submit" class="btn btn-success btn-sm">Add Book</button>
-        </form>
+{% load possessive %}
+
+<div>
+    <p>{{ request.user.username|possessive|title }} Books</p>
 </div>
-<hr/>
 
-<div class="d-flex justify-content-between">
-
-<section class="col-6">
-
-    {% if messages %}
-    <ul class="messages" hx-get="{% url 'clear' %}" hx-trigger="load delay:3s">
-        {% for message in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
-    {% if books %}
+<div>
+   {% if books %}
         {% csrf_token %}
-        <form class="sortable list-group col-xs-12" hx-trigger="end" hx-post="{% url 'sort' %}" hx-target="#book-list">
+        <form hx-trigger="end" hx-post="{% url 'sort' %}" hx-target="#book-list">
             <div class="htmx-indicator">Updating...</div>
                 {% include 'partials/book-list-elements.html' %}
         </form>
-    {% else %}
-        <p>You have no books in your list</p>
-    {% endif %}
-</section>
-
-<section class="col-4 offset-1">
-    {% include 'partials/search.html' %}
-</section>
-
+   {% else %}
+       <p>You have no books in your list</p>
+   {% endif %}
 </div>

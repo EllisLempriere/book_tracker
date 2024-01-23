@@ -33,6 +33,11 @@ body {
     border-bottom: 2px solid black;
     background: var(--bg-cyan);
 }
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
 .nav-header {
     word-wrap: break-word;
     font-weight: 700;
@@ -45,7 +50,7 @@ body {
     align-items: center;
     justify-content: center;
     align-self: stretch;
-    gap: 50px;
+    gap: 30px;
 }
 .nav-tail {
     display: flex;
