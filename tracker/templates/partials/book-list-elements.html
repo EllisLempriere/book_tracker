@@ -1,11 +1,4 @@
 {% for book in books %}
-
-{% if forloop.last %}
-<div hx-get="{% url 'book-list' %}?page={{ page_obj.number|add:1 }}" hx-trigger="revealed" hx-swap="afterend" hx-target="this">
-{% else %}
-<div>
-{% endif %}
-
     <input type="hidden" name="book_order" value="{{ book.pk }}" />
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <a hx-get="{% url 'detail' book.pk %}"
@@ -19,6 +12,4 @@
               hx-target="#book-list"
               hx-confirm="Are you sure you want to delete?">X</span>
     </li>
-</div>
-
 {% endfor %}

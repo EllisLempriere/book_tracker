@@ -39,7 +39,6 @@ class BookList(LoginRequiredMixin, ListView):
     template_name = 'books.html'
     model = UserBook
     context_object_name = 'books'
-    paginate_by = settings.PAGINATE_BY
 
     def get_template_names(self):
         if self.request.htmx:
@@ -120,11 +119,7 @@ def sort(request):
         books.append(userbook)
 
     UserBook.objects.bulk_update(updated_books, ['order'])
-
-    paginator = Paginator(books, settings.PAGINATE_BY)
-    page_number = len(book_pks_order) / settings.PAGINATE_BY
-    page_obj = paginator.get_page(page_number)
-    context = {'books': books, 'page_obj': page_obj}
+    context = {'books': books}
 
     return render(request, 'partials/book-list.html', context)
 
