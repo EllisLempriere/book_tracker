@@ -8,6 +8,7 @@
 html {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 body {
@@ -73,8 +74,9 @@ body {
     flex: 1 1 0;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 50px;
+    padding: 20px 50px 40px 50px;
     gap: 100px;
+    height: 100%;
 }
 .page-header {
     display: flex;
@@ -145,6 +147,55 @@ body {
     font-family: inherit;
 }
 
+#book-list {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.lists-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    flex: 1 0 auto;
+    padding: 0 50px;
+    gap: 100px;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    flex: 1 0 auto;
+    gap: 5px;
+}
+.list-header {
+    font-size: 32px;
+    color: var(--dark-cyan);
+    font-weight: 700;
+}
+.list-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    flex: 1 0 auto;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--dark-cyan);
+}
+.list-contents p {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+}
 
 .small-button {
     display: flex;
@@ -161,6 +212,20 @@ body {
 }
 .small-button.red-button {
     background: var(--error-red);
+}
+.large-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.large-button.green-button {
+    background: var(--mint-green);
 }
 
 .success {

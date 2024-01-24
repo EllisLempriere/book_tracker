@@ -1,12 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="align-center col-10, offset-1">
-    <main class="d-flex">
-        <section id ="book-list" class="col-12">
-            {% include 'partials/book-list.html' %}
-        </section>
-    </main>
-</div>
-
+    <div id="book-list">
+        {% include 'partials/book-list.html' %}
+    </div>
 {% endblock content %}
