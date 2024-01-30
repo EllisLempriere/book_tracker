@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load possessive %}
+
+{% block content %}
+    <div class="page-header">{{ request.user.username|possessive|title }} Books</div>
+    <div id="completed-books">
+        {% include 'partials/finished-books.html' %}
+    </div>
+    <div id="book-filters">
+        {% include 'partials/book-filters.html' %}
+    </div>
+{% endblock content %}

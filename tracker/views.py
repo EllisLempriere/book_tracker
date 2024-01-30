@@ -49,6 +49,15 @@ class BookList(LoginRequiredMixin, ListView):
         return UserBook.objects.prefetch_related('book').filter(user=self.request.user)
 
 
+class CompletedBooks(LoginRequiredMixin, ListView):
+    template_name = 'completed-books.html'
+    model = UserBook
+    context_object_name = 'books'
+
+    def get_queryset(self):
+        return UserBook.objects.prefetch_related('book').filter(user=self.request.user)
+
+
 # HTMX
 def check_username(request):
     username = request.POST.get('username')
