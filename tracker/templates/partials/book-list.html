@@ -1,24 +1,22 @@
-{% load possessive %}
-    <div class="page-header">{{ request.user.username|possessive|title }} Books</div>
-    <div class="lists-container">
-        <div class="list">
-            <div class="list-header">To Read</div>
-            <div class="list-contents">
-                {% if books %}
-                {% else %}
-                    <p>No Books in List</p>
-                    <div class="large-button green-button">Add Books</div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="list">
-            <div class="list-header">In Progress</div>
-            <div class="list-contents">
-                {% if books %}
-                {% else %}
-                    <p>No Books in List</p>
-                    <div class="large-button green-button">Add Books</div>
-                {% endif %}
-            </div>
+<div class="lists-container">
+    <div class="list">
+        <div class="list-header">To Read</div>
+        <div class="list-contents">
+            {% if books %}
+            {% else %}
+                <p>No Books in List</p>
+                <div class="large-button green-button">Add Books</div>
+            {% endif %}
         </div>
     </div>
+    <div class="list">
+        <div class="list-header">In Progress</div>
+        <div class="list-contents">
+            {% if books %}
+            {% else %}
+                <p>No Books in List</p>
+                <div class="large-button green-button">Add Books</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
