@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_htmx',
     'debug_toolbar',
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
