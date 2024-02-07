@@ -2,28 +2,31 @@
 {% load widget_tweaks %}
 
 {% block content %}
-    {% include 'partials/welcome.html' %}
+    {% include 'partials/welcome-header.html' %}
 
-    <div class="login-form">
-        <div class="login-form-header">Register</div>
+    <div class="col-6 offset-3 pt-4">
+        <div class="form-header mb-2">Register</div>
         <form method="POST" action="{% url 'register' %}" autocomplete="off">
             {% csrf_token %}
 
-            <div class="form-entry-container" style="gap: 5px">
+            <div class="form-floating mb-2">
                 {{ form.username.errors }}
-                {% render_field form.username placeholder="Username" hx-post="/check_username/" hx-swap="outerhtml" hx-trigger="keyup delay:1.5s" hx-target="#username-error" %}
+                {% render_field form.username class="form-control" id="floatingInput" placeholder=field.name hx-post="/check_username/" hx-swap="outerhtml" hx-trigger="keyup delay:1.5s" hx-target="#username-error" %}
                 <div id="username-error"></div>
+                <label for="floatingInput">Username</label>
             </div>
-            <div class="form-entry-container">
+            <div class="form-floating mb-2">
                 {{ form.password1.errors }}
-                {% render_field form.password1 placeholder="Enter a Password" %}
+                {% render_field form.password1 class="form-control" id="floatingInput" placeholder=field.name placeholder="Enter a Password" %}
+                <label for="floatingInput">Password</label>
             </div>
-            <div class="form-entry-container">
+            <div class="form-floating mb-2">
                 {{ form.password2.errors }}
-                {% render_field form.password2 placeholder="Confirm Password" %}
+                {% render_field form.password2 class="form-control" id="floatingInput" placeholder=field.name placeholder="Confirm Password" %}
+                <label for="floatingInput">Confirm Password</label>
             </div>
 
-            <button class="small-button green-button form-entry-submit" type="submit">Register</button>
+            <button class="btn-success btn-enter px-2" type="submit">Register</button>
         </form>
     </div>
 

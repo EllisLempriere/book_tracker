@@ -2,23 +2,25 @@
 {% load widget_tweaks %}
 
 {% block content %}
-    {% include 'partials/welcome.html' %}
+    {% include 'partials/welcome-header.html' %}
 
-    <div class="login-form">
-        <div class="login-form-header">Login</div>
+    <div class="col-6 offset-3 pt-4">
+        <div class="form-header mb-2">Login</div>
         <form method="POST" action="{% url 'login' %}" autocomplete="off">
             {% csrf_token %}
 
-            <div class="form-entry-container">
+            <div class="form-floating mb-2">
                 {{ form.username.errors }}
-                {% render_field form.username placeholder="Username" %}
+                {% render_field form.username class="form-control" id="floatingInput" placeholder=field.name %}
+                <label for="floatingInput">Username</label>
             </div>
-            <div class="form-entry-container">
+            <div class="form-floating mb-2">
                 {{ field.password.errors }}
-                {% render_field form.password placeholder="Password" %}
+                {% render_field form.password class="form-control" id="floatingInput" placeholder=field.name %}
+                <label for="floatingInput">Password</label>
             </div>
 
-            <button class="small-button green-button form-entry-submit" type="submit">Login</button>
+            <button class="btn-success btn-enter px-2" type="submit">Login</button>
         </form>
     </div>
 

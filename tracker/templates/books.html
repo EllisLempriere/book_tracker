@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
-{% load possessive %}
 
 {% block content %}
-    <div class="page-header">{{ request.user.username|possessive|title }} Books</div>
-    <div id="book-list">
-        {% include 'partials/book-list.html' %}
+
+    {% include 'partials/logged-in-header.html' %}
+
+    <div class="row justify-content-between text-center">
+        <div id="to-read-list" class="col-6">
+            {% include 'partials/to-read-list.html' %}
+        </div>
+
+        <div id="in-progress-list" class="col-6">
+            {% include 'partials/in-progress-list.html' %}
+        </div>
     </div>
+
 {% endblock content %}

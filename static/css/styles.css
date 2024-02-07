@@ -1,232 +1,100 @@
 :root {
     --bg-cyan: #177B9B;
     --mint-green: #06D6A0;
+    --mint-green-hover: rgba(6, 214, 160, 0.8);
     --dark-cyan: #073B4C;
     --error-red: #EB2453BF;
-}
-
-html {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    --error-red-hover: rgba(235, 36, 83, 0.85);
 }
 
 body {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 .navbar {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    height: 60px;
-    padding: 0 50px;
+    background-color: var(--bg-cyan) !important;
     border-bottom: 2px solid black;
-    background: var(--bg-cyan);
 }
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-.nav-header {
-    word-wrap: break-word;
-    font-weight: 700;
-    font-size: 32px;
+.navbar-brand {
     color: black;
-    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.75rem !important;
 }
-.nav-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: stretch;
-    gap: 20px;
-}
-.nav-tail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+.navbar-brand:hover {
+    color: white;
 }
 .nav-link {
-    word-wrap: break-word;
-    font-weight: 600;
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
+    color: black !important;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+.nav-link.btn-success {
+    background-color: var(--mint-green);
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 2.25rem;
+}
+.nav-link.btn-success:hover {
+    background-color: var(--mint-green-hover);
+}
+.nav-link.btn-danger {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 2.25rem;
+}
+.nav-link.btn-danger:hover {
+    background-color: var(--error-red-hover);
+    border: 1px solid black;
 }
 
-.main {
-    display: flex;
-    align-items: center;
-    align-self: stretch;
-    flex: 1 1 0;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 20px 50px 40px 50px;
-    gap: 100px;
-    height: 100%;
-}
 .page-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    padding-left: 150px;
-    padding-right: 150px;
     border-bottom: 2px solid var(--dark-cyan);
     color: var(--dark-cyan);
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: 700;
-    word-wrap: break-word;
 }
 
-.login-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    align-self: stretch;
-    gap: 20px;
-    padding: 0 25%;
+.form-header {
+    font-size: 1.5rem !important;
+    font-weight: 600;
 }
-.login-form-header {
-    color: black;
-    font-size: 32px;
-    font-weight: 700;
-    word-wrap: break-word;
-}
-.login-form form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    align-self: stretch;
-    gap: 10px;
-}
-.form-entry-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    align-self: stretch;
-    gap: 10px;
-}
-.form-entry-container input {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    align-self: stretch;
-    gap: 10px;
-    padding: 10px 20px;
+.form-floating input {
     border-radius: 10px;
     border: 1px solid var(--dark-cyan);
-    color: black;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: 0.22px;
-    word-wrap: break-word;
-}
-.form-entry-submit {
-    font-size: 26px;
-    font-weight: 700;
-    word-wrap: break-word;
-    font-family: inherit;
 }
 
-#book-list {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    align-items: center;
-    flex: 1 1 auto;
-    justify-content: flex-start;
-    gap: 50px;
-}
-
-.lists-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-    flex: 1 0 auto;
-    padding: 0 50px;
-    gap: 100px;
-}
-.list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: stretch;
-    flex: 1 0 auto;
-    gap: 5px;
-}
-.list-header {
-    font-size: 32px;
-    color: var(--dark-cyan);
-    font-weight: 700;
-}
-.list-contents {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-    flex: 1 0 auto;
-    padding: 20px;
-    gap: 10px;
-    border-radius: 5px;
-    border: 2px solid var(--dark-cyan);
-}
-.list-contents p {
-    font-size: 26px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.small-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px 10px;
-    border-radius: 20px;
-    border: 1px black solid;
-    gap: 10px;
-    cursor: pointer;
-}
-.small-button.green-button {
-    background: var(--mint-green);
-}
-.small-button.red-button {
-    background: var(--error-red);
-}
-.large-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px 10px;
-    border-radius: 20px;
+.btn-success.btn-enter {
+    background-color: var(--mint-green);
     border: 1px solid black;
-    font-size: 24px;
+    border-radius: 15px;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.btn-success.btn-enter:hover {
+    background-color: var(--mint-green-hover);
+    color: black;
+}
+.btn-success.btn-enter:focus {
+    background-color: var(--mint-green-hover);
+    color: black;
+}
+
+.list-header {
+    font-size: 2rem;
+    color: var(--dark-cyan);
     font-weight: 600;
-    cursor: pointer;
 }
-.large-button.green-button {
-    background: var(--mint-green);
+.list-group {
+    border-radius: 2px;
+    border: 2px solid var(--dark-cyan)
 }
+.list-group p {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
 
 .success {
     color: var(--mint-green);
