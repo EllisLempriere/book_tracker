@@ -1,13 +1,111 @@
-#navbar {
-    height: 100px;
+:root {
+    --bg-cyan: #177B9B;
+    --mint-green: #06D6A0;
+    --mint-green-hover: rgba(6, 214, 160, 0.8);
+    --dark-cyan: #073B4C;
+    --error-red: #EB2453BF;
+    --error-red-hover: rgba(235, 36, 83, 0.85);
 }
 
+body {
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+.navbar {
+    background-color: var(--bg-cyan) !important;
+    border-bottom: 2px solid black;
+}
+.navbar-brand {
+    color: black;
+    font-weight: 700;
+    font-size: 1.75rem !important;
+}
+.navbar-brand:hover {
+    color: white;
+}
+.nav-link {
+    color: black !important;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+.nav-link.btn-success {
+    background-color: var(--mint-green);
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 2.25rem;
+}
+.nav-link.btn-success:hover {
+    background-color: var(--mint-green-hover);
+}
+.nav-link.btn-danger {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 2.25rem;
+}
+.nav-link.btn-danger:hover {
+    background-color: var(--error-red-hover);
+    border: 1px solid black;
+}
+
+.page-header {
+    border-bottom: 2px solid var(--dark-cyan);
+    color: var(--dark-cyan);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.form-header {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+}
+.form-floating input {
+    border-radius: 10px;
+    border: 1px solid var(--dark-cyan);
+}
+
+.btn-success.btn-enter {
+    background-color: var(--mint-green);
+    border: 1px solid black;
+    border-radius: 15px;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.btn-success.btn-enter:hover {
+    background-color: var(--mint-green-hover);
+    color: black;
+}
+.btn-success.btn-enter:focus {
+    background-color: var(--mint-green-hover);
+    color: black;
+}
+
+.list-header {
+    font-size: 2rem;
+    color: var(--dark-cyan);
+    font-weight: 600;
+}
+.list-group {
+    border-radius: 2px;
+    border: 2px solid var(--dark-cyan)
+}
+.list-group p {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+
 .success {
-    color: green;
+    color: var(--mint-green);
     transition: all ease-in 1s;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .error {
-    color: red;
+    color: var(--error-red);
     transition: all ease-in 1s;
+    font-size: 18px;
+    font-weight: 600;
 }

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_htmx',
     'debug_toolbar',
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,10 +135,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'tracker.User'
 
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
-
-PAGINATE_BY = 20
+LOGIN_REDIRECT_URL = 'book-list'
+LOGOUT_REDIRECT_URL = 'login'
 
 INTERNAL_IPS = [
     '127.0.0.1'
