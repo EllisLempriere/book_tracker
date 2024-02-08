@@ -3,9 +3,9 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <a hx-get="{% url 'detail' book.pk %}"
            hx-target="#book-list"
-           hx-push-url="/books/{{ book.book.name }}"
+           hx-push-url="/books/{{ book.book.title }}"
            style="cursor: pointer">
-            #{{ book.order }} {{ book.book.name }}
+            #{{ book.order }} {{ book.book.title }}
         </a>
         <span style="cursor: pointer; color: red;"
               hx-delete="{% url 'delete-book' book.pk %}"

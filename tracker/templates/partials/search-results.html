@@ -7,7 +7,7 @@
             {{ book.name }}
             <span style="cursor: pointer; color: green;"
                   hx-post="{% url 'add-book' %}"
-                  hx-vals='{"bookname": "{{ book.name }}"}'
+                  hx-vals='{"bookname": "{{ book.title }}"}'
                   hx-target="#book-list">add</span>
         </li>
         {% endfor %}

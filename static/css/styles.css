@@ -63,6 +63,14 @@ body {
     border-radius: 10px;
     border: 1px solid var(--dark-cyan);
 }
+.input-group input {
+    border-radius: 10px;
+    border: 1px solid var(--dark-cyan);
+}
+form label.form-label{
+    font-weight: 500;
+    margin-bottom: 0;
+}
 
 .btn-success.btn-enter {
     background-color: var(--mint-green);

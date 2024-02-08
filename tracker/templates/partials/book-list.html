@@ -1,9 +1,6 @@
 <div class="list-header">{% block header %}{% endblock header %}</div>
-<div class="list-group mb-2">
-    {% if books %}
 
-    {% else %}
-        <p class="my-2">No Books in List</p>
-    {% endif %}
-</div>
-<button class="btn-lg btn-success btn-enter">Add Books</button>
+{% block list_contents %}
+{% endblock list_contents %}
+
+<button class="btn-lg btn-success btn-enter">Add to List</button>

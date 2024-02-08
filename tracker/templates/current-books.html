@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load possessive %}
 
 {% block content %}
 
-    {% include 'partials/logged-in-header.html' %}
+    <div class="page-header text-center col-8 offset-2 mb-4">
+        {{ request.user.username|possessive|title }} Books
+    </div>
 
     <div class="row justify-content-between text-center">
         <div id="to-read-list" class="col-6">
