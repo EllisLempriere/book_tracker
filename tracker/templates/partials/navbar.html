@@ -7,7 +7,10 @@
                 <a class="nav-link disabled" href="{% url 'current_books' %}">Completed Books</a>
                 <a class="nav-link" href="{% url 'book_add' %}">Add Book</a>
             </div>
-            <a class="d-flex nav-link btn-danger py-0 align-items-center align-self-center" href="{% url 'logout' %}">Logout</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="d-flex nav-link btn-danger py-0 align-items-center align-self-center" type="submit">Logout</button>
+            </form>
         {% else %}
             <a class="navbar-brand" href="{% url 'login' %}">Book Tracker</a>
             <div class="navbar-nav">
