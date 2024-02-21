@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from tracker.models import *
+
+admin.site.register(Series)
+admin.site.register(SeriesBook)
+admin.site.register(Book)
+admin.site.register(ToReadBook)
+admin.site.register(InProgressRead)
+admin.site.register(FinishedRead)
