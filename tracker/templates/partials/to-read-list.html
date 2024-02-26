@@ -4,6 +4,8 @@
 
 {% block list_contents %}
     {% if not current_books.to_read %}
-        {% include 'partials/empty-list.html' %}
+        <div class="list-group mb-2">
+            <p class="my-2">No Books in List</p>
+        </div>
     {% endif %}
 {% endblock list_contents %}
