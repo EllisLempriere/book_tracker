@@ -10,7 +10,16 @@ class User(AbstractUser):
 class Series(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=30)
-    page_count = models.PositiveIntegerField()
+
+    @property
+    def total_pages(self):
+        total_pages = 0
+        books = SeriesBook.objects.filter(full_series_id=self.id)
+        for book in books:
+            obj = Book.objects.filter(series=book)
+            total_pages += obj.get('page_count')
+
+        return total_pages
 
 
 class SeriesBook(models.Model):
