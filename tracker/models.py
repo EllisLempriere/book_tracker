@@ -62,7 +62,7 @@ class UserBook(models.Model):
 
 
 class ToReadBook(UserBook):
-    order = models.PositiveIntegerField()
+    order = models.PositiveIntegerField(unique=True)
 
     class Meta:
         ordering = ['order']
