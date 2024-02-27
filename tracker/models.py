@@ -11,6 +11,10 @@ class Series(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=30)
 
+    class Meta:
+        verbose_name = "Series"
+        verbose_name_plural = "Series"
+
     @property
     def total_pages(self):
         total_pages = 0
@@ -21,10 +25,16 @@ class Series(models.Model):
 
         return total_pages
 
+    def __str__(self):
+        return f"{self.title}"
+
 
 class SeriesBook(models.Model):
     full_series = models.OneToOneField(Series, on_delete=models.CASCADE)
     num_in_series = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"#{self.num_in_series} in {self.full_series.title}"
 
 
 class Book(models.Model):
@@ -36,6 +46,9 @@ class Book(models.Model):
 
     class Meta:
         ordering = [Lower('title')]
+
+    def __str__(self):
+        return f"{self.title}"
 
 
 class UserBook(models.Model):
@@ -54,6 +67,9 @@ class ToReadBook(UserBook):
     class Meta:
         ordering = ['order']
 
+    def __str__(self):
+        return f"{self.book.title} at #{self.order} for {self.user}"
+
 
 class Read(UserBook):
     read_number = models.PositiveIntegerField()
@@ -66,6 +82,12 @@ class Read(UserBook):
 class InProgressRead(Read):
     current_page = models.PositiveIntegerField()
 
+    def __str__(self):
+        return f"{self.user} at page {self.current_page} in {self.book.title}"
+
 
 class FinishedRead(Read):
     end_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.user} finished {self.book.title} at {self.end_date}"
