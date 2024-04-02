@@ -129,6 +129,13 @@ form label.form-label{
     cursor: pointer;
 }
 
+.current-book-title {
+    text-decoration: none;
+    text-decoration-color: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
 .success {
     color: var(--mint-green);
     transition: all ease-in 1s;

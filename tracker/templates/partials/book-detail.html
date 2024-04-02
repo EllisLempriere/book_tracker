@@ -1,29 +1,20 @@
-<div class="d-flex justify-content-between align-items-top">
-    <div>
-        <h2 class="text-success mb-4">{{ userbook.book.title }}</h2>
+{% load widget_tweaks %}
 
-        <p>This book is #{{ userbook.order }} in {{ userbook.user.username|title }}'s list</p>
+{% block content %}
+{% with WIDGET_ERROR_CLASS='is_invalid' %}
 
-        <button class="btn btn-primary"
-                hx-get="{% url 'book-list-partial' %}"
-                hx-target="#book-list"
-                hx-push-url="/books">Your List</button>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">{{ user_book.book.title }}</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Author: {{ user_book.book.author }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
     </div>
 
-    <div>
-        {% if userbook.book.cover %}
-            <img src="{{ userbook.book.cover.url }}" style="max-width: 200px; max-height: 200px;" />
-        {% else %}
-            <p>No cover :(</p>
-        {% endif %}
-
-        <form hx-encoding="multipart/form-data" hx-post="{% url 'upload-cover' userbook.pk %}" hx-target="#book-list">
-            {% csrf_token %}
-            <div class="form-group">
-                <input type="file" name="cover" />
-            </div>
-
-            <button class="btn btn-success" type="submit">Upload File</button>
-        </form>
-    </div>
-</div>
+{% endwith %}
+{% endblock content %}
