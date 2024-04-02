@@ -82,6 +82,10 @@ class Read(UserBook):
 class InProgressRead(Read):
     current_page = models.PositiveIntegerField()
 
+    @property
+    def current_percent(self):
+        return self.current_page / self.book.page_count * 100
+
     def __str__(self):
         return f"{self.user} at page {self.current_page} in {self.book.title}"
 

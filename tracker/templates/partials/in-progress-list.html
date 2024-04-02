@@ -3,9 +3,19 @@
 {% block header %}In Progress{% endblock header %}
 
 {% block list_contents %}
-    {% if not current_books.in_progress %}
-        <div class="list-group mb-2">
+
+    <div class="list-group mb-2 p-1 gap-1">
+        {% if not in_progress %}
             <p class="my-2">No Books in List</p>
-        </div>
-    {% endif %}
+        {% else %}
+            {% for book in in_progress %}
+                <li id="in-progress-item" class="list-group-item d-flex justify-content-between align-items-center p-2"
+                    style="background: linear-gradient(to right, var(--mint-green-hover) {{ book.current_percent|floatformat:0 }}%, white {{ book.current_percent|floatformat:0 }}%);">
+                    <div>{{ book.book.title }}</div>
+                    <span class="badge">X</span>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
 {% endblock list_contents %}

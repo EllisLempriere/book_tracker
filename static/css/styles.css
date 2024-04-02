@@ -103,6 +103,31 @@ form label.form-label{
     font-weight: 500;
 }
 
+#to-read-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+#to-read-item span.badge {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#in-progress-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+#in-progress-item span.badge {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
 
 .success {
     color: var(--mint-green);

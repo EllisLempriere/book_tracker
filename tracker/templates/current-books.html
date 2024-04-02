@@ -7,12 +7,12 @@
         {{ request.user.username|possessive|title }} Books
     </div>
 
-    <div class="row justify-content-between text-center">
-        <div id="to-read-list" class="col-6">
+    <div class="row justify-content-between">
+        <div id="to-read-list" class="d-flex col-6 flex-column">
             {% include 'partials/to-read-list.html' %}
         </div>
 
-        <div id="in-progress-list" class="col-6">
+        <div id="in-progress-list" class="d-flex col-6 flex-column">
             {% include 'partials/in-progress-list.html' %}
         </div>
     </div>

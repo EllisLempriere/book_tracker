@@ -3,9 +3,18 @@
 {% block header %}To Read{% endblock header %}
 
 {% block list_contents %}
-    {% if not current_books.to_read %}
-        <div class="list-group mb-2">
+
+    <div class="list-group mb-2 p-1 gap-1">
+        {% if not to_read %}
             <p class="my-2">No Books in List</p>
-        </div>
+        {% else %}
+            {% for book in to_read %}
+                <li id="to-read-item" class="list-group-item d-flex justify-content-between align-items-center p-2">
+                    <div>#{{ book.order }} {{ book.book.title }}</div>
+                    <span class="badge">X</span>
+                </li>
+        {% endfor %}
     {% endif %}
+    </div>
+
 {% endblock list_contents %}
