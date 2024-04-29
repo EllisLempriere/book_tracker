@@ -12,7 +12,7 @@ from django.views.decorators.http import require_http_methods
 
 from book_tracker import settings
 from tracker.forms import RegisterForm, NewBookForm
-from tracker.models import ToReadBook, InProgressRead, Series, UserBook
+from tracker.models import ToReadBook, InProgressRead, Series, UserBook, FinishedRead
 from tracker.utils import get_max_order, reorder
 
 
@@ -70,15 +70,17 @@ def check_username(request):
 
 
 @login_required
-def book_detail(request, pk, book_type):
+def book_detail(request, book_pk, book_type):
     if book_type == 'to-read':
-        user_book = get_object_or_404(ToReadBook, pk=pk)
+        user_book = get_object_or_404(ToReadBook, book_id=book_pk)
     elif book_type == 'in-progress':
-        user_book = get_object_or_404(InProgressRead, pk=pk)
+        user_book = get_object_or_404(InProgressRead, book_id=book_pk)
     else:
         return
 
-    return render(request, 'partials/book-detail.html', {'user_book': user_book})
+    finished_reads = FinishedRead.objects.filter(book_id=book_pk).filter(user=request.user)
+
+    return render(request, 'partials/book-detail.html', {'user_book': user_book, 'finished_reads': finished_reads})
 
 # @login_required
 # def add_book(request):

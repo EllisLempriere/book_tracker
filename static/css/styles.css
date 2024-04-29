@@ -37,16 +37,6 @@ body {
 .nav-link.btn-success:hover {
     background-color: var(--mint-green-hover);
 }
-.nav-link.btn-danger {
-    background-color: var(--error-red);
-    border: 1px solid black;
-    border-radius: 15px;
-    height: 2.25rem;
-}
-.nav-link.btn-danger:hover {
-    background-color: var(--error-red-hover);
-    border: 1px solid black;
-}
 
 .page-header {
     border-bottom: 2px solid var(--dark-cyan);
@@ -72,22 +62,7 @@ form label.form-label{
     margin-bottom: 0;
 }
 
-.btn-success.btn-enter {
-    background-color: var(--mint-green);
-    border: 1px solid black;
-    border-radius: 15px;
-    color: black;
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-.btn-success.btn-enter:hover {
-    background-color: var(--mint-green-hover);
-    color: black;
-}
-.btn-success.btn-enter:focus {
-    background-color: var(--mint-green-hover);
-    color: black;
-}
+
 
 .list-header {
     font-size: 2rem;
@@ -134,6 +109,64 @@ form label.form-label{
     text-decoration-color: inherit;
     color: inherit;
     cursor: pointer;
+}
+
+.modal-title {
+    font-weight: bolder;
+}
+.book-info {
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+}
+#book-info-header {
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.book-cover {
+    border: 2px solid var(--dark-cyan);
+    max-height: 50vh;
+}
+.book-stats {
+    font-size: 1.25rem;
+    font-weight: 400;
+    height: fit-content;
+}
+
+thead.table-light th {
+    background-color: var(--bg-cyan);
+}
+th {
+    font-size: 1.25rem;
+}
+
+.btn-success.btn-enter {
+    background-color: var(--mint-green);
+    border: 1px solid black;
+    border-radius: 15px;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.btn-success.btn-enter:hover {
+    background-color: var(--mint-green-hover);
+    color: black;
+}
+.btn-success.btn-enter:focus {
+    background-color: var(--mint-green-hover);
+    color: black;
+}
+button.btn-danger {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 2.25rem;
+}
+button.btn-danger:hover {
+    background-color: var(--error-red-hover);
+    border: 1px solid black;
 }
 
 .success {

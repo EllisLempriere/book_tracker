@@ -93,5 +93,13 @@ class InProgressRead(Read):
 class FinishedRead(Read):
     end_date = models.DateField()
 
+    @property
+    def days_to_read(self):
+        return (self.end_date - self.start_date).days
+
+    @property
+    def pages_per_day(self):
+        return round(self.book.page_count / self.days_to_read, 2)
+
     def __str__(self):
         return f"{self.user} finished {self.book.title} at {self.end_date}"

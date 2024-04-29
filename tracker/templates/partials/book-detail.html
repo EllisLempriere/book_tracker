@@ -1,4 +1,6 @@
 {% load widget_tweaks %}
+{% load status %}
+{% status as stat %}
 
 {% block content %}
 {% with WIDGET_ERROR_CLASS='is_invalid' %}
@@ -9,10 +11,56 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Author: {{ user_book.book.author }}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            <div class="row mb-1">
+                <div class="book-info col-8">
+                    <div id="book-info-header">Author: </div>{{ user_book.book.author }}<br>
+                    <div id="book-info-header">Series: </div>Book #{{ user_book.book.series.num_in_series }} in {{ user_book.book.series.full_series.title }}<br>
+                    <div id="book-info-header">Page Count: </div>{{ user_book.book.page_count }}
+                </div>
+                <div class="col-4">
+                    <img class="book-cover img-fluid rounded mx-auto d-block" src="{{ user_book.book.cover.url }}"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <div id="book-info-header">Your Stats</div>
+                    <div class="book-stats">Number of Reads: #{{ finished_reads.count }}<pre class="d-inline-block my-0">&#9</pre>Current Status: {{ stat }}</div>
+                </div>
+                <div class="col-4 d-flex">
+                    <button class="btn btn-success btn-enter mx-auto">Start Read</button>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Read #</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Days to Read</th>
+                        <th scope="col">Pages per Day</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                {% if stat == 'In Progress' %}
+                    <tr>
+                        <th scope="row">{{ user_book.read_number }}</th>
+                        <td>{{ user_book.start_date }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endif %}
+                {% for read in finished_reads %}
+                    <tr>
+                        <th scope="row">{{ read.read_number }}</th>
+                        <td>{{ read.start_date }}</td>
+                        <td>{{ read.end_date }}</td>
+                        <td>{{ read.days_to_read }}</td>
+                        <td>{{ read.pages_per_day }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 

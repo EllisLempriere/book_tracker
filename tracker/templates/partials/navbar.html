@@ -5,7 +5,7 @@
             <div class="navbar-nav me-auto">
                 <a class="nav-link" href="{% url 'current_books' %}">Your Books</a>
                 <a class="nav-link disabled" href="{% url 'current_books' %}">Completed Books</a>
-                <a class="nav-link" href="{% url 'book_add' %}">Add Book</a>
+                <a class="nav-link disabled" href="{% url 'book_add' %}">Add Book</a>
             </div>
             <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
