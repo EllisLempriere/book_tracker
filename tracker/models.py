@@ -10,12 +10,31 @@ class User(AbstractUser):
 class Series(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=30)
-    page_count = models.PositiveIntegerField()
+
+    class Meta:
+        verbose_name = "Series"
+        verbose_name_plural = "Series"
+
+    @property
+    def total_pages(self):
+        total_pages = 0
+        books = SeriesBook.objects.filter(full_series_id=self.id)
+        for book in books:
+            obj = Book.objects.filter(series=book)
+            total_pages += obj.get('page_count')
+
+        return total_pages
+
+    def __str__(self):
+        return f"{self.title}"
 
 
 class SeriesBook(models.Model):
     full_series = models.OneToOneField(Series, on_delete=models.CASCADE)
     num_in_series = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"#{self.num_in_series} in {self.full_series.title}"
 
 
 class Book(models.Model):
@@ -27,6 +46,9 @@ class Book(models.Model):
 
     class Meta:
         ordering = [Lower('title')]
+
+    def __str__(self):
+        return f"{self.title}"
 
 
 class UserBook(models.Model):
@@ -40,10 +62,13 @@ class UserBook(models.Model):
 
 
 class ToReadBook(UserBook):
-    order = models.PositiveIntegerField()
+    order = models.PositiveIntegerField(unique=True)
 
     class Meta:
         ordering = ['order']
+
+    def __str__(self):
+        return f"{self.book.title} at #{self.order} for {self.user}"
 
 
 class Read(UserBook):
@@ -57,6 +82,24 @@ class Read(UserBook):
 class InProgressRead(Read):
     current_page = models.PositiveIntegerField()
 
+    @property
+    def current_percent(self):
+        return self.current_page / self.book.page_count * 100
+
+    def __str__(self):
+        return f"{self.user} at page {self.current_page} in {self.book.title}"
+
 
 class FinishedRead(Read):
     end_date = models.DateField()
+
+    @property
+    def days_to_read(self):
+        return (self.end_date - self.start_date).days
+
+    @property
+    def pages_per_day(self):
+        return round(self.book.page_count / self.days_to_read, 2)
+
+    def __str__(self):
+        return f"{self.user} finished {self.book.title} at {self.end_date}"

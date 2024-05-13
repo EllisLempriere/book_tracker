@@ -32,8 +32,15 @@
 
     <div class="container">
         {% block content %}
-        {% endblock %}
+        {% endblock content %}
     </div>
+
+    <!-- Modal Placeholder -->
+    <div id="modal" class="modal fade" tabindex="-1">
+        <div id="dialog" class="modal-dialog modal-xl"></div>
+    </div>
+    <!-- Modal Trigger -->
+    <script src="{% static 'dialog.js' %}"></script>
 
     <script>
         document.body.addEventListener('htmx:configRequest', (event) => {

@@ -15,12 +15,12 @@ urlpatterns = [
 
 htmx_views = [
     path('check_username/', views.check_username, name="check-username"),
+    path('book_detail/<int:book_pk>/<str:book_type>/', views.book_detail, name="book_detail")
     # path('add_book/', views.add_book, name="add-book"),
     # path('delete_book/<int:pk>/', views.delete_book, name="delete-book"),
     # path('search-book/', views.search_book, name="search-book"),
     # path('clear/', views.clear, name="clear"),
     # path('sort/', views.sort, name="sort"),
-    # path('detail/<int:pk>/', views.detail, name="detail"),
     # path('book_list_partial', views.books_partial, name="book-list-partial"),
     # path('upload_cover/<int:pk>/', views.upload_cover, name="upload-cover")
 ]

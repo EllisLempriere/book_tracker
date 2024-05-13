@@ -37,16 +37,6 @@ body {
 .nav-link.btn-success:hover {
     background-color: var(--mint-green-hover);
 }
-.nav-link.btn-danger {
-    background-color: var(--error-red);
-    border: 1px solid black;
-    border-radius: 15px;
-    height: 2.25rem;
-}
-.nav-link.btn-danger:hover {
-    background-color: var(--error-red-hover);
-    border: 1px solid black;
-}
 
 .page-header {
     border-bottom: 2px solid var(--dark-cyan);
@@ -72,6 +62,86 @@ form label.form-label{
     margin-bottom: 0;
 }
 
+
+
+.list-header {
+    font-size: 2rem;
+    color: var(--dark-cyan);
+    font-weight: 600;
+}
+.list-group {
+    border-radius: 2px;
+    border: 2px solid var(--dark-cyan)
+}
+.list-group p {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#to-read-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+#to-read-item span.badge {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#in-progress-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+#in-progress-item span.badge {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.current-book-title {
+    text-decoration: none;
+    text-decoration-color: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-weight: bolder;
+}
+.book-info {
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+}
+#book-info-header {
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.book-cover {
+    border: 2px solid var(--dark-cyan);
+    max-height: 50vh;
+}
+.book-stats {
+    font-size: 1.25rem;
+    font-weight: 400;
+    height: fit-content;
+}
+
+thead.table-light th {
+    background-color: var(--bg-cyan);
+}
+th {
+    font-size: 1.25rem;
+}
+
 .btn-success.btn-enter {
     background-color: var(--mint-green);
     border: 1px solid black;
@@ -88,21 +158,16 @@ form label.form-label{
     background-color: var(--mint-green-hover);
     color: black;
 }
-
-.list-header {
-    font-size: 2rem;
-    color: var(--dark-cyan);
-    font-weight: 600;
+button.btn-danger {
+    background-color: var(--error-red);
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 2.25rem;
 }
-.list-group {
-    border-radius: 2px;
-    border: 2px solid var(--dark-cyan)
+button.btn-danger:hover {
+    background-color: var(--error-red-hover);
+    border: 1px solid black;
 }
-.list-group p {
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
 
 .success {
     color: var(--mint-green);
