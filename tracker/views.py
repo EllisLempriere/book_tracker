@@ -45,9 +45,8 @@ class CurrentBooks(LoginRequiredMixin, TemplateView):
         return context
 
 
-class CompletedBooks(LoginRequiredMixin, ListView):
+class CompletedBooks(LoginRequiredMixin, TemplateView):
     template_name = 'completed-books.html'
-    context_object_name = 'books'
 
 
 class BookAdd(LoginRequiredMixin, FormView):
