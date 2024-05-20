@@ -48,6 +48,11 @@ class CurrentBooks(LoginRequiredMixin, TemplateView):
 class CompletedBooks(LoginRequiredMixin, TemplateView):
     template_name = 'completed-books.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["finished_books"] = FinishedRead.objects.filter(user=self.request.user)
+        return context
+
 
 class BookAdd(LoginRequiredMixin, FormView):
     form_class = NewBookForm

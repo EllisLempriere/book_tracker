@@ -1,1 +1,20 @@
-<div>Completed Books Table</div>
+<table class="table table-sm">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">No. of Reads</th>
+            <th scope="col">Current Status</th>
+            <th scope="col">Quickest Read</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for book in finished_books %}
+            <tr>
+                <td>{{ book.book.title }}</td>
+                <td>{{ book.read_count }}</td>
+                <td>In Progress</td> {# TODO - Dynamically display #}
+                <td>10 Days</td> {# TODO - Dynamically display #}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
