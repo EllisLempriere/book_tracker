@@ -1,5 +1,5 @@
 from django.db.models import Max
-from tracker.models import UserBook
+from tracker.models import UserBook, ToReadBook
 
 
 def get_max_order(user) -> int:
@@ -12,7 +12,7 @@ def get_max_order(user) -> int:
 
 
 def reorder(user):
-    existing_books = UserBook.objects.filter(user=user)
+    existing_books = ToReadBook.objects.filter(user=user)
     if not existing_books.exists():
         return
 

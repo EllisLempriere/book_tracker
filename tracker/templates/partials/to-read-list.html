@@ -6,12 +6,12 @@
 
     <div class="list-group mb-2 p-1 gap-1">
         {% if not to_read %}
-            <p class="my-2">No Books in List</p>
+            <p class="my-2 ml-2">No Books in List</p>
         {% else %}
             {% for book in to_read %}
                 <li id="to-read-item" class="list-group-item d-flex justify-content-between align-items-center p-2">
                     <a hx-get="{% url 'book_detail' book.book.pk 'to-read' %}" hx-target="#dialog" class="current-book-title">#{{ book.order }} {{ book.book.title }}</a>
-                    <span class="badge">X</span>
+                    <span class="badge" hx-delete="{% url 'remove_book' book.book.pk 'to-read' %}" hx-target="#to-read-list" hx-confirm="Are you sure you want to delete?">X</span>
                 </li>
         {% endfor %}
     {% endif %}

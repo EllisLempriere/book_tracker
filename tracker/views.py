@@ -82,6 +82,23 @@ def book_detail(request, book_pk, book_type):
 
     return render(request, 'partials/book-detail.html', {'user_book': user_book, 'finished_reads': finished_reads})
 
+
+@login_required
+@require_http_methods(['DELETE'])
+def remove_book(request, book_pk, book_type):
+    if book_type == 'to-read':
+        ToReadBook.objects.get(book_id=book_pk, user=request.user).delete()
+        reorder(request.user)
+        books = ToReadBook.objects.filter(user=request.user)
+        return render(request, 'partials/to-read-list.html', {'to-read': books})
+    elif book_type == 'in-progress':
+        InProgressRead.objects.get(book_id=book_pk, user=request.user).delete()
+        books = InProgressRead.objects.filter(user=request.user)
+        return render(request, 'partials/in-progress-list.html', {'in-progress': books})
+    else:
+        return
+
+
 # @login_required
 # def add_book(request):
 #     title = request.POST.get('booktitle')
@@ -97,17 +114,6 @@ def book_detail(request, book_pk, book_type):
 #
 #     books = UserBook.objects.filter(user=request.user)
 #     messages.success(request, f"Added {title} to book list")
-#     return render(request, 'partials/book-list.html', {'books': books})
-#
-#
-# @login_required
-# @require_http_methods(['DELETE'])
-# def delete_book(request, pk):
-#     UserBook.objects.get(pk=pk).delete()
-#
-#     reorder(request.user)
-#
-#     books = UserBook.objects.filter(user=request.user)
 #     return render(request, 'partials/book-list.html', {'books': books})
 #
 #

@@ -15,7 +15,8 @@ urlpatterns = [
 
 htmx_views = [
     path('check_username/', views.check_username, name="check-username"),
-    path('book_detail/<int:book_pk>/<str:book_type>/', views.book_detail, name="book_detail")
+    path('book_detail/<int:book_pk>/<str:book_type>/', views.book_detail, name="book_detail"),
+    path('remove_book/<int:book_pk>/<str:book_type>/', views.remove_book, name="remove_book")
     # path('add_book/', views.add_book, name="add-book"),
     # path('delete_book/<int:pk>/', views.delete_book, name="delete-book"),
     # path('search-book/', views.search_book, name="search-book"),
