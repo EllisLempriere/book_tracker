@@ -1,15 +1,13 @@
 ## Bug Fixes
-- When going to a book details page then back to books list, scrolling duplicates the list
-- Some strange display bugs displayed on different device when deleting an item from list
+- When deleting an item, the updated list does not render until page gets reloaded
 
 ## New Features
-- Add more book-specific information to books
-- Add capabilities for user to add their own information about books (start date, finish date, etc.)
-- Add differing lists with drag-and-drop capabilities between lists
-- Add different ways to add books
-- Add information to the landing page
+- Be able to drag-and-drop between 'To Read' and 'In Progress' lists
+- Add drag and drop within individual lists
+- Build up 'Add Book' page
+- Make 'Add to List' button work on Current Books page
+- Create Completed Books page
 
 ## Changes
-- Make book details a pop-up window
-- Extract add book to separate page
-- Make users not manually have to add pictures and other book information
+- On 'In Progress' books, have table data dynamically calculate
+- On 'In Progress' books, highlight the row of the current read
